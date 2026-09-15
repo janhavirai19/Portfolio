@@ -22,6 +22,8 @@ const Projects = () => {
       category: "ai-ml",
       color: "#8B5CF6",
       icon: "🛡️",
+      liveUrl: "https://safepath-ai-gamma.vercel.app",
+      githubUrl: "https://github.com/janhavirai19",
     },
     {
       title: "HealTech",
@@ -32,6 +34,8 @@ const Projects = () => {
       category: "healthcare",
       color: "#3B82F6",
       icon: "💊",
+      liveUrl: "https://janhavirai19.github.io/healtech-hospital/",
+      githubUrl: "https://github.com/janhavirai19",
     },
     {
       title: "Sweet Crumbs",
@@ -42,6 +46,8 @@ const Projects = () => {
       category: "e-commerce",
       color: "#EC4899",
       icon: "🧁",
+      liveUrl: "https://sweet-crumbs-iota.vercel.app",
+      githubUrl: "https://github.com/janhavirai19",
     },
     {
       title: "GlowUp",
@@ -52,6 +58,8 @@ const Projects = () => {
       category: "booking",
       color: "#06B6D4",
       icon: "✨",
+      liveUrl: "https://glowup-studio-sigma.vercel.app/",
+      githubUrl: "https://github.com/janhavirai19",
     },
   ];
 
@@ -111,13 +119,6 @@ const Projects = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 sm:mb-20"
         >
-          {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
-              Projects / selected-work
-            </span>
-          </div> */}
-
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
             <span className="text-white">Featured </span>
             <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
@@ -147,6 +148,7 @@ const Projects = () => {
               const scale = 1 - stackPosition * 0.05;
               const opacity = 1 - stackPosition * 0.15;
               const zIndex = 100 - stackPosition;
+              const isTopCard = stackPosition === 0;
 
               return (
                 <motion.div
@@ -171,7 +173,16 @@ const Projects = () => {
                   }}
                   className="absolute inset-0"
                 >
-                  <div className="group relative w-full h-full rounded-xl border border-white/[0.08] bg-[#0d0d1f]/90 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/50">
+                  <div
+                    onClick={() => {
+                      if (isTopCard) {
+                        window.open(project.liveUrl, "_blank");
+                      }
+                    }}
+                    className={`group relative w-full h-full rounded-xl border border-white/[0.08] bg-[#0d0d1f]/90 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/50 ${
+                      isTopCard ? "cursor-pointer" : "cursor-default"
+                    }`}
+                  >
                     <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.02] border-b border-white/[0.06]">
                       <div className="flex items-center gap-1.5">
                         <Circle size={11} className="fill-red-500 text-red-500" />
@@ -270,7 +281,9 @@ const Projects = () => {
                       <div className="relative flex items-center justify-between pt-4 border-t border-white/[0.06]">
                         <div className="flex items-center gap-4">
                           <a
-                            href="#"
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
                             onClick={(e) => e.stopPropagation()}
                             className="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 hover:text-white transition-colors"
                           >
@@ -278,7 +291,9 @@ const Projects = () => {
                             code
                           </a>
                           <a
-                            href="#"
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
                             onClick={(e) => e.stopPropagation()}
                             className="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 hover:text-white transition-colors"
                           >
