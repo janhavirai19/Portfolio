@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -284,13 +283,6 @@ const Experience = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
-              experience / career-log
-            </span>
-          </div>
-
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
             <span className="text-white">Work </span>
             <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
@@ -444,12 +436,7 @@ const Experience = () => {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
             <div className="text-center sm:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl mb-4">
-                <Award size={12} className="text-blue-400" />
-                <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
-                  certifications / verified
-                </span>
-              </div>
+
 
               <h3 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
                 <span className="text-white">Certifi</span>

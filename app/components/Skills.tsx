@@ -81,13 +81,6 @@ const Skills = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
-              skills / tech-stack
-            </span>
-          </div>
-
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
             <span className="text-white">Tech </span>
             <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-purple-300 bg-clip-text text-transparent">

@@ -1,8 +1,8 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, Terminal, Command } from "lucide-react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Hero = () => {
   const words = ["Creative Developer", "UI/UX Designer", "Problem Solver", "Code Artist"];
@@ -10,11 +10,9 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [showRest, setShowRest] = useState(false);
-
   useEffect(() => {
     const currentWord = words[wordIndex];
     let timeout: NodeJS.Timeout;
-
     if (!isDeleting && displayText === currentWord) {
       timeout = setTimeout(() => setIsDeleting(true), 1800);
     } else if (isDeleting && displayText === "") {
@@ -111,13 +109,6 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
-                Available for work
-              </span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight min-h-[120px] sm:min-h-[160px] lg:min-h-[180px]">
               <span className="block text-white font-semibold tracking-tight">
                 I'm{" "}
@@ -230,7 +221,14 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 animate-pulse" />
 
               <div className="relative w-full h-full rounded-full overflow-hidden border border-white/[0.08] bg-gradient-to-br from-[#12122a] to-[#0a0a1a] flex items-center justify-center shadow-2xl shadow-purple-500/10">
-                <span className="text-7xl sm:text-8xl">👩‍💻</span>
+                <Image
+                  src="/janhavi.jpg"
+                  alt="Janhavi Rai"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 352px"
+                />
 
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.06]" />
 

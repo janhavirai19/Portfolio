@@ -120,7 +120,8 @@ const Navbar = () => {
               <Linkedin size={15} />
             </a>
             <motion.a
-              href="/resume.pdf"
+              href="/janhavi.pdf"
+              download="Janhavi_Rai_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               whileHover={{ scale: 1.03 }}
@@ -195,7 +196,8 @@ const Navbar = () => {
                   </a>
                 </div>
                 <a
-                  href="/resume.pdf"
+                  href="/janhavi.pdf"
+                  download="Janhavi_Rai_Resume.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 text-sm font-medium text-white bg-white/[0.08] hover:bg-white/[0.12] border border-white/[0.1] rounded-xl transition-all"
