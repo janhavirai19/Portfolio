@@ -6,12 +6,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Hero = () => {
-  const words = [
-  "Full Stack Developer",
-  "AI Enthusiast",
-  "React Developer",
-  "Problem Solver"
-];
+  const words = ["Creative Developer", "UI/UX Designer", "Problem Solver", "Code Artist"];
   const [wordIndex, setWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -42,6 +37,9 @@ const Hero = () => {
   useEffect(() => {
     if (displayText.length > 8) setShowRest(true);
   }, [displayText]);
+
+  const emailLink =
+    "mailto:janhavi.rai@example.com?subject=Let's%20work%20together&body=Hi%20Janhavi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0AThanks!";
 
   return (
     <section
@@ -146,7 +144,7 @@ const Hero = () => {
                 />
               </motion.a>
               <motion.a
-                href="mailto:janhavi.rai@example.com"
+                href={emailLink}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 border border-white/[0.12] bg-white/[0.03] backdrop-blur-xl rounded-full text-white font-mono font-semibold text-xs sm:text-sm hover:bg-white/[0.08] hover:border-white/[0.2] transition-all duration-300"
@@ -184,7 +182,7 @@ const Hero = () => {
                 <Linkedin size={16} />
               </a>
               <a
-                href="mailto:janhavi.rai@example.com"
+                href={emailLink}
                 aria-label="Email"
                 className="w-10 h-10 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/40 hover:bg-white/[0.06] transition-all duration-300"
               >
