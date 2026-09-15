@@ -6,11 +6,13 @@ import {
   MapPin,
   Coffee,
   Code2,
-  Terminal,
   Circle,
+  Terminal,
   Folder,
   FileCode,
   Cpu,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 
 const About = () => {
@@ -22,17 +24,19 @@ const About = () => {
     { name: "Tailwind", color: "#38BDF8" },
     { name: "Framer", color: "#E64BFF" },
   ];
-
   const facts = [
     { icon: MapPin, label: "Based in", value: "Pune, India" },
-    { icon: Coffee, label: "Fueled by", value: "Coffee" },
-    { icon: Code2, label: "Open to", value: "Collaborations" },
+    { icon: Coffee, label: "Fueled by", value: "Filter coffee" },
+    { icon: Code2, label: "Open to", value: "Full-time roles" },
   ];
-
   const nowItems = [
-    { label: "Learning", value: "System Design & Cloud Architecture" },
+    { label: "Learning", value: "System design & cloud architecture" },
     { label: "Building", value: "AI-powered developer tools" },
     { label: "Reading", value: "Designing Data-Intensive Applications" },
+  ];
+  const highlights = [
+    { icon: Sparkles, label: "Focus", value: "Clean UI & DX" },
+    { icon: Zap, label: "Approach", value: "Ship, learn, iterate" },
   ];
 
   return (
@@ -44,18 +48,18 @@ const About = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a1a] via-[#0d0d1f] to-[#0a0a1a]" />
 
         <motion.div
-          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-[130px]"
+          className="absolute top-[10%] left-[-10%] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full bg-purple-500/10 blur-[110px] sm:blur-[130px]"
           animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[130px]"
+          className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full bg-blue-500/10 blur-[110px] sm:blur-[130px]"
           animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div
-          className="absolute inset-0 opacity-[0.035]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(139,92,246,0.4) 1px, transparent 1px),
@@ -64,17 +68,9 @@ const About = () => {
             backgroundSize: "48px 48px",
           }}
         />
-
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 3px)",
-          }}
-        />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,20 +80,20 @@ const About = () => {
         >
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
-            <span className="text-white">Know Me </span>
+            <span className="text-white">A bit </span>
             <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
-              Better
+              about me
             </span>
           </h2>
 
           <div className="w-16 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full mb-5" />
 
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-light">
-            Passionate developer creating innovative digital solutions that make a difference
+          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-mono">
+            <span className="text-gray-600">//</span> Designer-turned-developer who cares about both pixels and performance
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,71 +111,63 @@ const About = () => {
                 <div className="flex-1 flex items-center justify-center gap-2">
                   <Terminal size={12} className="text-gray-500" />
                   <span className="text-[11px] text-gray-500 font-mono">
-                    janhavi@portfolio: ~/about
+                    about.md
                   </span>
                 </div>
                 <div className="w-12" />
               </div>
 
               <div className="p-6 sm:p-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-purple-400 font-mono text-sm">$</span>
-                  <span className="text-gray-400 font-mono text-sm">
-                    whoami
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="text-purple-400 font-mono text-sm">
+                    <span className="text-gray-600">$</span> whoami
                   </span>
                 </div>
 
-                <div className="pl-4 mb-6 border-l border-white/[0.06]">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3 font-mono">
+                <div className="pl-4 mb-7 border-l-2 border-purple-500/30">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-4">
                     Janhavi Rai
                   </h3>
-                  <p className="text-gray-400 leading-relaxed text-sm sm:text-[15px] font-light mb-4">
-                    I'm a passionate{" "}
-                    <span className="text-white font-medium">
-                      full-stack developer
-                    </span>{" "}
-                    based in Pune, India — crafting clean interfaces and scalable
-                    systems for the modern web. I love turning complex ideas into
-                    simple, elegant experiences.
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-[15px] mb-4">
+                    I&apos;m a <span className="text-white font-medium">full-stack developer</span> based
+                    in Pune, India — I design and build web products that are fast, accessible,
+                    and a joy to use. My work sits at the intersection of{" "}
+                    <span className="text-white font-medium">clean design</span> and{" "}
+                    <span className="text-white font-medium">solid engineering</span>.
                   </p>
-                  <p className="text-gray-400 leading-relaxed text-sm font-light">
-                    When I'm not coding, you'll find me exploring new design
-                    trends, experimenting with side projects, or writing about my
-                    learnings. I believe great products are born from curiosity
-                    and iteration.
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-[15px]">
+                    I care about the details others skip — empty states, loading skeletons,
+                    keyboard navigation, and the small moments that make a product feel
+                    considered. Outside of work, I&apos;m usually reading about systems design,
+                    sketching UI ideas, or shipping side projects I&apos;ll probably rewrite later.
                   </p>
                 </div>
 
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-purple-400 font-mono text-sm">$</span>
-                  <span className="text-gray-400 font-mono text-sm">
-                    cat facts.json
+                  <span className="text-purple-400 font-mono text-sm">
+                    <span className="text-gray-600">$</span> cat facts.json
                   </span>
                 </div>
 
-                <div className="pl-4 mb-6 border-l border-white/[0.06] flex flex-wrap gap-x-6 gap-y-2">
+                <div className="pl-4 mb-7 border-l-2 border-purple-500/30 flex flex-wrap gap-x-6 gap-y-3">
                   {facts.map((fact, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 text-sm text-gray-400"
-                    >
+                    <div key={i} className="flex items-center gap-2">
                       <fact.icon size={14} className="text-purple-400" />
                       <span className="font-mono text-xs text-gray-500">
                         {fact.label}:
                       </span>
-                      <span className="text-gray-300 font-mono">{fact.value}</span>
+                      <span className="text-sm text-gray-300">{fact.value}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-purple-400 font-mono text-sm">$</span>
-                  <span className="text-gray-400 font-mono text-sm">
-                    ls tech-stack/
+                  <span className="text-purple-400 font-mono text-sm">
+                    <span className="text-gray-600">$</span> ls tech-stack/
                   </span>
                 </div>
 
-                <div className="pl-4 mb-6 border-l border-white/[0.06] flex flex-wrap gap-2">
+                <div className="pl-4 mb-7 border-l-2 border-purple-500/30 flex flex-wrap gap-2">
                   {techStack.map((tech, i) => (
                     <motion.span
                       key={tech.name}
@@ -198,9 +186,31 @@ const About = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-purple-400 font-mono text-sm">$</span>
-                  <motion.a
+                <div className="flex items-center gap-2">
+                  <span className="text-purple-400 font-mono text-sm">
+                    <span className="text-gray-600">$</span> cat principles.md
+                  </span>
+                </div>
+
+                <div className="pl-4 mb-7 border-l-2 border-purple-500/30 space-y-3">
+                  {highlights.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <item.icon size={14} className="text-purple-400 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="font-mono text-xs text-gray-500">
+                          {item.label}:
+                        </span>{" "}
+                        <span className="text-sm text-gray-300">{item.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-purple-400 font-mono text-sm">
+                    <span className="text-gray-600">$</span>
+                  </span>
+                  <a
                     href="#experience"
                     className="group inline-flex items-center gap-1.5 text-sm font-mono text-gray-400 hover:text-white transition-colors"
                   >
@@ -210,7 +220,7 @@ const About = () => {
                       size={13}
                       className="group-hover:translate-x-1 transition-transform duration-300"
                     />
-                  </motion.a>
+                  </a>
                 </div>
               </div>
             </div>
@@ -227,7 +237,7 @@ const About = () => {
               <div className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06]">
                 <Folder size={12} className="text-purple-400" />
                 <span className="text-[11px] text-gray-500 font-mono">
-                  ~/currently
+                  currently/
                 </span>
                 <span className="ml-auto flex items-center gap-1.5">
                   <span className="relative flex h-1.5 w-1.5">
@@ -235,7 +245,7 @@ const About = () => {
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
                   </span>
                   <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">
-                    live
+                    active
                   </span>
                 </span>
               </div>
@@ -249,7 +259,7 @@ const About = () => {
                     <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1.5 font-mono">
                       {item.label}
                     </p>
-                    <p className="text-sm text-white font-medium leading-snug font-mono">
+                    <p className="text-sm text-white leading-snug">
                       {item.value}
                     </p>
                   </div>
@@ -261,25 +271,25 @@ const About = () => {
               <div className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06]">
                 <Cpu size={12} className="text-blue-400" />
                 <span className="text-[11px] text-gray-500 font-mono">
-                  ~/stats
+                  stats/
                 </span>
               </div>
 
               <div className="grid grid-cols-2 divide-x divide-white/[0.06]">
                 <div className="p-5 text-center">
-                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-mono">
+                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                     2+
                   </p>
                   <p className="text-[10px] uppercase tracking-widest text-gray-500 mt-1 font-mono">
-                    Years
+                    Years coding
                   </p>
                 </div>
                 <div className="p-5 text-center">
-                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent font-mono">
+                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                     15+
                   </p>
                   <p className="text-[10px] uppercase tracking-widest text-gray-500 mt-1 font-mono">
-                    Projects
+                    Projects shipped
                   </p>
                 </div>
               </div>
@@ -289,7 +299,7 @@ const About = () => {
               <div className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06]">
                 <FileCode size={12} className="text-green-400" />
                 <span className="text-[11px] text-gray-500 font-mono">
-                  ~/tree
+                  portfolio/
                 </span>
               </div>
               <div className="p-4 font-mono text-[11px] leading-relaxed">
@@ -299,13 +309,16 @@ const About = () => {
                 </p>
                 <p className="text-gray-500 pl-3">
                   ├── <span className="text-blue-400">about.tsx</span>{" "}
-                  <span className="text-purple-400">← here</span>
+                  <span className="text-purple-400">← you are here</span>
                 </p>
                 <p className="text-gray-500 pl-3">
                   ├── <span className="text-blue-400">skills.tsx</span>
                 </p>
                 <p className="text-gray-500 pl-3">
-                  └── <span className="text-blue-400">projects.tsx</span>
+                  ├── <span className="text-blue-400">projects.tsx</span>
+                </p>
+                <p className="text-gray-500 pl-3">
+                  └── <span className="text-blue-400">experience.tsx</span>
                 </p>
               </div>
             </div>
