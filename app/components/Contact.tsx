@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Github, Linkedin, Send, Terminal, Circle } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Send, Terminal, Circle, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -9,22 +9,46 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [output, setOutput] = useState<string[]>([]);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!formData.name || !formData.email || !formData.message) return;
 
-    setOutput([
-      `> Sending message from ${formData.name}...`,
-      `> Email: ${formData.email}`,
-      `> ✓ Message delivered successfully!`,
-      `> I'll get back to you within 24 hours.`,
-    ]);
+    setStatus("sending");
 
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New message from ${formData.name} — Portfolio`,
+          from_name: "Janhavi Rai Portfolio",
+        }),
+      });
 
-    setTimeout(() => setOutput([]), 6000);
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch (error) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   const contacts = [
@@ -32,13 +56,13 @@ const Contact = () => {
       icon: Mail,
       label: "email",
       value: "janhavirai932@gmail.com",
-      href: "janhavirai932@gmail.com",
+      href: "mailto:janhavirai932@gmail.com",
     },
     {
       icon: Phone,
       label: "phone",
-      value: "+91 980000000",
-      href: "tel:+9198000000",
+      value: "+91 9800000000",
+      href: "tel:+919800000000",
     },
     {
       icon: MapPin,
@@ -130,7 +154,7 @@ const Contact = () => {
                 >
                   <Linkedin size={14} className="text-gray-500 group-hover:text-purple-400 transition-colors" />
                   <span className="text-xs text-gray-300 font-mono group-hover:text-white transition-colors">
-                    linkedin.com/in/janhavi
+                    linkedin.com/in/janhavi-rai-dev
                   </span>
                 </a>
               </div>
@@ -156,6 +180,7 @@ const Contact = () => {
                     }
                     className="w-full px-3 py-2.5 bg-black/30 border border-white/10 rounded-md text-white placeholder-gray-700 focus:border-purple-500/60 focus:outline-none transition-colors text-sm font-mono"
                     placeholder="your_name"
+                    disabled={status === "sending"}
                   />
                 </div>
 
@@ -173,6 +198,7 @@ const Contact = () => {
                     }
                     className="w-full px-3 py-2.5 bg-black/30 border border-white/10 rounded-md text-white placeholder-gray-700 focus:border-purple-500/60 focus:outline-none transition-colors text-sm font-mono"
                     placeholder="your@email.com"
+                    disabled={status === "sending"}
                   />
                 </div>
 
@@ -190,28 +216,57 @@ const Contact = () => {
                     }
                     className="w-full px-3 py-2.5 bg-black/30 border border-white/10 rounded-md text-white placeholder-gray-700 focus:border-purple-500/60 focus:outline-none transition-colors resize-none text-sm font-mono"
                     placeholder="Type your message here..."
+                    disabled={status === "sending"}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-md text-white text-sm font-mono font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                  disabled={status === "sending"}
+                  className="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-md text-white text-sm font-mono font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <Send size={14} />
-                  <span>execute --send</span>
+                  {status === "sending" ? (
+                    <>
+                      <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      <span>sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={14} />
+                      <span>execute --send</span>
+                    </>
+                  )}
                 </button>
               </form>
 
-              {output.length > 0 && (
+              {status === "success" && (
                 <div className="mt-5 p-3 rounded-md border border-green-500/20 bg-green-500/5">
-                  {output.map((line, i) => (
-                    <p
-                      key={i}
-                      className="text-xs font-mono text-green-400 leading-relaxed"
-                    >
-                      {line}
-                    </p>
-                  ))}
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <CheckCircle2 size={14} className="text-green-400" />
+                    <span className="text-xs font-mono text-green-400 font-medium">
+                      Message sent successfully
+                    </span>
+                  </div>
+                  <p className="text-[11px] font-mono text-green-400/70 leading-relaxed">
+                    &gt; Thank you! I&apos;ll get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="mt-5 p-3 rounded-md border border-red-500/20 bg-red-500/5">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <AlertCircle size={14} className="text-red-400" />
+                    <span className="text-xs font-mono text-red-400 font-medium">
+                      Failed to send message
+                    </span>
+                  </div>
+                  <p className="text-[11px] font-mono text-red-400/70 leading-relaxed">
+                    &gt; Please try again or email me directly at janhavirai932@gmail.com
+                  </p>
                 </div>
               )}
             </div>
