@@ -24,18 +24,21 @@ const About = () => {
     { name: "Tailwind", color: "#38BDF8" },
     { name: "Framer", color: "#E64BFF" },
   ];
+
   const facts = [
     { icon: MapPin, label: "Based in", value: "Pune, India" },
     { icon: Coffee, label: "Fueled by", value: "Filter coffee" },
     { icon: Code2, label: "Open to", value: "Full-time roles" },
   ];
+
   const nowItems = [
     { label: "Learning", value: "System design & cloud architecture" },
-    { label: "Building", value: "AI-powered developer tools" },
+    { label: "Building", value: "Full-stack apps with Next.js & Prisma" },
     { label: "Reading", value: "Designing Data-Intensive Applications" },
   ];
+
   const highlights = [
-    { icon: Sparkles, label: "Focus", value: "Clean UI & DX" },
+    { icon: Sparkles, label: "Focus", value: "Full Stack Developer" },
     { icon: Zap, label: "Approach", value: "Ship, learn, iterate" },
   ];
 
@@ -78,18 +81,24 @@ const About = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 sm:mb-20"
         >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">
+              About
+            </span>
+          </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
-            <span className="text-white">A bit </span>
+            <span className="text-white">About </span>
             <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
-              about me
+              me
             </span>
           </h2>
 
           <div className="w-16 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full mb-5" />
 
           <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-mono">
-            <span className="text-gray-600">//</span> Designer-turned-developer who cares about both pixels and performance
+            <span className="text-gray-600">//</span> Full-stack developer with an eye for the small details that make products feel right
           </p>
         </motion.div>
 
@@ -129,17 +138,26 @@ const About = () => {
                     Janhavi Rai
                   </h3>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-[15px] mb-4">
-                    I&apos;m a <span className="text-white font-medium">full-stack developer</span> based
-                    in Pune, India — I design and build web products that are fast, accessible,
-                    and a joy to use. My work sits at the intersection of{" "}
-                    <span className="text-white font-medium">clean design</span> and{" "}
-                    <span className="text-white font-medium">solid engineering</span>.
+                    I&apos;m a{" "}
+                    <span className="text-white font-medium">
+                      full-stack developer
+                    </span>{" "}
+                    based in Pune, India — I design and build web products that
+                    are fast, accessible, and a joy to use. My work sits at the
+                    intersection of{" "}
+                    <span className="text-white font-medium">clean design</span>{" "}
+                    and{" "}
+                    <span className="text-white font-medium">
+                      solid engineering
+                    </span>
+                    .
                   </p>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-[15px]">
-                    I care about the details others skip — empty states, loading skeletons,
-                    keyboard navigation, and the small moments that make a product feel
-                    considered. Outside of work, I&apos;m usually reading about systems design,
-                    sketching UI ideas, or shipping side projects I&apos;ll probably rewrite later.
+                    I care about the details others skip — empty states, loading
+                    skeletons, keyboard navigation, and the small moments that
+                    make a product feel considered. Outside of work, I&apos;m
+                    usually reading about systems design, sketching UI ideas, or
+                    shipping side projects I&apos;ll probably rewrite later.
                   </p>
                 </div>
 
@@ -186,7 +204,7 @@ const About = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mb-4">
                   <span className="text-purple-400 font-mono text-sm">
                     <span className="text-gray-600">$</span> cat principles.md
                   </span>
@@ -195,12 +213,17 @@ const About = () => {
                 <div className="pl-4 mb-7 border-l-2 border-purple-500/30 space-y-3">
                   {highlights.map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <item.icon size={14} className="text-purple-400 mt-0.5 flex-shrink-0" />
+                      <item.icon
+                        size={14}
+                        className="text-purple-400 mt-0.5 flex-shrink-0"
+                      />
                       <div>
                         <span className="font-mono text-xs text-gray-500">
                           {item.label}:
                         </span>{" "}
-                        <span className="text-sm text-gray-300">{item.value}</span>
+                        <span className="text-sm text-gray-300">
+                          {item.value}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -254,7 +277,11 @@ const About = () => {
                 {nowItems.map((item, i) => (
                   <div
                     key={i}
-                    className={`${i < nowItems.length - 1 ? "pb-4 border-b border-white/[0.05]" : ""}`}
+                    className={`${
+                      i < nowItems.length - 1
+                        ? "pb-4 border-b border-white/[0.05]"
+                        : ""
+                    }`}
                   >
                     <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1.5 font-mono">
                       {item.label}

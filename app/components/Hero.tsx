@@ -6,7 +6,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Hero = () => {
-  const words = ["Creative Developer", "UI/UX Designer", "Problem Solver", "Code Artist"];
+  const words = [
+    "Web Developer",
+    "Full-Stack Developer",
+    "React Developer",
+    "Problem Solver",
+  ];
   const [wordIndex, setWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -39,7 +44,7 @@ const Hero = () => {
   }, [displayText]);
 
   const emailLink =
-    "mailto:janhavi.rai@example.com?subject=Let's%20work%20together&body=Hi%20Janhavi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0AThanks!";
+    "mailto:janhavirai932@gmail.com?subject=Let's%20work%20together&body=Hi%20Janhavi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0AThanks!";
 
   return (
     <section
@@ -121,7 +126,7 @@ const Hero = () => {
               transition={{ duration: 0.6 }}
               className="text-sm sm:text-base font-mono text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              <span className="text-gray-600">//</span> I design and build digital products that are fast, accessible, and genuinely enjoyable to use.
+              <span className="text-gray-600">//</span> I build modern web applications with React, Next.js, and Node.js — focused on clean interfaces, scalable systems, and real user experience.
             </motion.p>
 
             <motion.div
