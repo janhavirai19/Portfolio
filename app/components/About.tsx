@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -14,7 +13,6 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
-
 const About = () => {
   const techStack = [
     { name: "React", color: "#61DAFB" },
@@ -24,7 +22,6 @@ const About = () => {
     { name: "Tailwind", color: "#38BDF8" },
     { name: "Framer", color: "#E64BFF" },
   ];
-
   const facts = [
     { icon: MapPin, label: "Based in", value: "Pune, India" },
     { icon: Coffee, label: "Fueled by", value: "Filter coffee" },
